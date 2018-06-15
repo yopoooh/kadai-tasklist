@@ -4,37 +4,39 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:import url="../layout/app.jsp">
 	<c:param name="content">
-		<%
-		    request.setCharacterEncoding("UTF-8");
-		%>
+		<c:choose>
+			<c:when test="${task != null}">
+				<h2>id : ${task.id} の詳細ページ</h2>
 
-		<h2>id : ${task.id} の詳細ページ</h2>
+				<p>
+					タイトル：
+					<c:out value="${task.title}" />
+				</p>
+				<p>
+					メッセージ：
+					<c:out value="${task.content}" />
+				</p>
+				<p>
+					作成日時：
+					<fmt:formatDate value="${task.created_at}"
+						pattern="yyyy-MM-dd HH:mm:ss" />
+				</p>
+				<p>
+					更新日時：
+					<fmt:formatDate value="${task.updated_at}"
+						pattern="yyyy-MM-dd HH:mm:ss" />
+				</p>
 
-		<p>
-			タイトル：
-			<c:out value="${task.title}" />
-		</p>
-		<p>
-			メッセージ：
-			<c:out value="${task.content}" />
-		</p>
-		<p>
-			作成日時：
-			<fmt:formatDate value="${task.created_at}"
-				pattern="yyyy-MM-dd HH:mm:ss" />
-		</p>
-		<p>
-			更新日時：
-			<fmt:formatDate value="${task.updated_at}"
-				pattern="yyyy-MM-dd HH:mm:ss" />
-		</p>
-
-		<p>
-			<a href="${pageContext.request.contextPath}/index">タスク一覧に戻る</a>
-		</p>
-		<p>
-			<a href="${pageContext.request.contextPath}/edit?id=${task.id}">編集ページに進む</a>
-		</p>
-
+				<p>
+					<a href="${pageContext.request.contextPath}/index">タスク一覧に戻る</a>
+				</p>
+				<p>
+					<a href="${pageContext.request.contextPath}/edit?id=${task.id}">このタスクを編集する</a>
+				</p>
+			</c:when>
+			<c:otherwise>
+				<h2>お探しのデータは見つかりませんでした。</h2>
+			</c:otherwise>
+		</c:choose>
 	</c:param>
 </c:import>
