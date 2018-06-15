@@ -12,7 +12,7 @@
 			<h1>タスク管理 アプリケーション</h1>
 		</div>
 		<div id="content">${param.content}</div>
-		<div id="footer">by Taro Kirameki.</div>
+		<div id="footer">by Matsushita.</div>
 	</div>
 </body>
 </html>

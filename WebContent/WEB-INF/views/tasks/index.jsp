@@ -14,7 +14,7 @@
             </c:forEach>
         </ul>
 
-        <p><a href="${pageContext.request.contextPath}/new">作成ページ</a></p>
+        <p><a href="${pageContext.request.contextPath}/new">作成ページに進む</a></p>
 
     </c:param>
 </c:import>
